@@ -9,9 +9,9 @@ function calculateAverage(arr) {
   if (arr.length <= 0) throw new Error('Array cannot be empty');
 
 
-    console.log(arr)
+    //console.log(arr)
   const total = arr.reduce((sum, number) => {
-    console.log(sum)
+    //console.log(sum)
     if (typeof number !== "number") throw new Error('Array can only contain numbers');
     return sum + number
    // console.log(sum)
