@@ -4,9 +4,18 @@
  * @returns {string}
  */
 function capitalizeWords(str) {
+
+  if(Array.isArray(str))throw new Error('Argument must be a string');
+  if(typeof str !== "string")throw new Error('String cannot be undefined');
+
+  if(str === "")return("");
+
   return str
-    .split(' ')
-    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .map((word) => word[0].toUpperCase() + word
+    .slice(1))
     .join(' ');
 }
 
