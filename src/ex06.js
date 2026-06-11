@@ -5,6 +5,8 @@
  */
 function countVowels(str) {
   const vowels = 'aeiou';
+  if (!str && str !== "") throw new Error('String cannot be undefined');
+  if(typeof str !== "string") throw new Error('Argument must be a string');
 
   return str
     .toLowerCase()
