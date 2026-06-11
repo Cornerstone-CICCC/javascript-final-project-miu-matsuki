@@ -9,7 +9,7 @@ function findMax(arr) {
   if (!Array.isArray(arr)) throw new Error('Argument must be an array');
   if (arr.length <= 0) throw new Error('Array cannot be empty');
 
-  console.log(arr)
+  //console.log(arr)
 
   //Set max
   let max= arr[0];
@@ -22,7 +22,7 @@ function findMax(arr) {
     }
 })
 
-console.log(Number(max))
+//console.log(Number(max))
 return Number(max)
 }
 
