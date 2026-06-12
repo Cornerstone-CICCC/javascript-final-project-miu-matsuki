@@ -4,11 +4,31 @@
  * @returns {{itemCount: number, totalQuantity: number, totalPrice: number}}
  */
 function createCartSummary(items) {
+  if(!items)throw new Error('Cart cannot be undefined')
+  if (!Array.isArray(items)) throw new Error('Cart must be an array');
+  items.map((el)=> {
+    if( !el.name || !el.price || !el.quantity) throw new Error("Each item must have a name, price, and quantity");
+
+  })
+  const msgNegative = 'Price and quantity cannot be negative';
+  const msgNumber = 'Price and quantity must be numbers';
+
   return {
     itemCount: items.length,
-    totalQuantity: items.reduce((total, item) => total + item.quantity, 0),
+    totalQuantity: items.reduce(
+      (total, item) => {
+        if(item.quantity < 0) throw new Error (msgNegative);
+        if(typeof item.quantity !== "number") throw new Error (msgNumber);
+
+        return total + item.quantity},
+         0),
+
     totalPrice: items.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total, item) =>{
+        if(item.price < 0) throw new Error(msgNegative);
+        if(typeof item.price !== "number") throw new Error (msgNumber);
+
+        return total + item.price * item.quantity},
       0,
     ),
   };
